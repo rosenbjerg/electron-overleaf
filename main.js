@@ -12,24 +12,26 @@ function createWindow () {
 	webPreferences: {
 	  nodeIntegration: false
 	},
-  icon: path.join(__dirname, "icon-192x192.png")});
+    icon: path.join(__dirname, "icon-192x192.png")});
   mainWindow.loadURL('https://v2.overleaf.com/project');
 
   mainWindow.on('closed', function () {
     mainWindow = null
-  })
+  });
+    mainWindow.setMenu(null);
 }
 
-app.on('ready', createWindow)
+
+app.on('ready', createWindow);
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
+});
 
 app.on('activate', function () {
   if (mainWindow === null) {
     createWindow()
   }
-})
+});
