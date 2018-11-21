@@ -1,10 +1,14 @@
 {
-  "name": "pca-desktop-player",
+  "name": "overleaf-wrapper",
+  "productName": "Overleaf",
   "version": "1.0.0",
-  "description": "A minimal player for PCA scenes (.pcas)",
+  "description": "Electron wrapper for Overleaf",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+	"package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+	"package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=x64 --icon=icon-192x192.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE,    
+	"package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=icon-192x192.png --prune=true --out=release-builds"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
